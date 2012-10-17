@@ -186,7 +186,7 @@ namespace :symfony do
 
   namespace :project do
     desc "Clears all non production environment controllers"
-    task :clear_controllers do
+    task :clear_controllers, :roles => :app, :except => { :no_release => true } do
       capifony_pretty_print "--> Clear controllers"
 
       run "#{try_sudo} sh -c 'cd #{latest_release} && rm -f #{web_path}/app_*.php'"
