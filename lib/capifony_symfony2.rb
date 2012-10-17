@@ -115,7 +115,7 @@ module Capifony
 
         def read_parameters(data)
           if '.ini' === File.extname(app_config_file) then
-            File.readable?(data) ? IniFile::load(data) : IniFile.new(data)
+            File.readable?(data) ? IniFile.load(data) : IniFile.new(data)
           else
             YAML::load(data)
           end
